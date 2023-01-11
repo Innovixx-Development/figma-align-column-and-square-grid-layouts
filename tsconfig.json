@@ -1,0 +1,14 @@
+{
+  "compilerOptions": {
+    "lib": [
+      "es6",
+    ],
+    "outDir": "./dist",
+    "typeRoots": [
+      "./node_modules/@types",
+      "./node_modules/@figma"
+    ],
+    "strict": true,
+    "sourceMap": false,
+  }
+}
