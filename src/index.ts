@@ -64,7 +64,7 @@ figma.ui.onmessage = msg => {
       {
         color: {r: 1, g: 0, b: 0, a: 0.10000000149011612},
         pattern: "GRID",
-        sectionSize: 10,
+        sectionSize: baselinePixel,
         visible: true,
       }
     ];
