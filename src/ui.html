@@ -3,7 +3,7 @@
     font-family: Arial, Helvetica, sans-serif
   }
   body {
-    padding: 20px 0;
+    padding: 20px 10px;
   }
   h1 {
     font-size: 22px;
@@ -15,9 +15,11 @@
       flex-direction: row;
       align-items: center;
       margin-bottom: 10px;
+
+      justify-content: space-between;
   }
   label span {
-      flex: 0.3;
+      flex: 0.8;
       font-size: 12px;
   }
   input {
@@ -32,11 +34,10 @@
   .buttonContainer {
     display: flex;
     flex-direction: row;
-    justify-content: flex-end;
+    justify-content: space-between;
     margin-top: 20px;
   }
   button {
-    margin-left: 10px;
     background-color: transparent;
     border: 0;
     cursor: pointer;
@@ -76,11 +77,7 @@
     <label class="row">
         <span>Container Screen Percentage: </span>
         <input type="number" max="99" id="invx_container-screen-percentage" value="85" placeholder="Container Screen Percentage" />
-    </label>
-    <label class="row">
-        <span>Colour Select: </span>
-        <input id="invx_color-select" value="rgba(227, 227, 227, 0.6)" placeholder="Colour Select" class="large-input" />
-    </label>        
+    </label>   
     <div class="buttonContainer">
         <button id="close" type="submit">Close</button>
         <button id="ok" type="submit">Apply</button>
@@ -128,9 +125,8 @@
     const columnGap = document.getElementById('invx_column-gap').value;
     const columnCount = document.getElementById('invx_column-count').value;
     const containerScreenPercentage = document.getElementById('invx_container-screen-percentage').value;
-    const colorSelect = document.getElementById('invx_color-select').value;
 
-    parent.postMessage({ pluginMessage: { type: 'submit', baselinePixel, artboardWidth, columnGap, columnCount, containerScreenPercentage, colorSelect } }, '*');
+    parent.postMessage({ pluginMessage: { type: 'submit', baselinePixel, artboardWidth, columnGap, columnCount, containerScreenPercentage } }, '*');
   }
 
   document.getElementById('cancel').onclick = () => {
@@ -152,8 +148,7 @@
     const columnGap = document.getElementById('invx_column-gap').value;
     const columnCount = document.getElementById('invx_column-count').value;
     const containerScreenPercentage = document.getElementById('invx_container-screen-percentage').value;
-    const colorSelect = document.getElementById('invx_color-select').value;
 
-    parent.postMessage({ pluginMessage: { type: 'submit', baselinePixel, artboardWidth, columnGap, columnCount, containerScreenPercentage, colorSelect, acceptArtboardWidthChange: true } }, '*');
+    parent.postMessage({ pluginMessage: { type: 'submit', baselinePixel, artboardWidth, columnGap, columnCount, containerScreenPercentage, acceptArtboardWidthChange: true } }, '*');
   }
 </script>

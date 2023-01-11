@@ -1,4 +1,4 @@
-figma.showUI(__html__, { width: 350, height: 600 });
+figma.showUI(__html__, { width: 250, height: 450 });
 
 figma.ui.onmessage = msg => {
   if(msg.type === 'init') {

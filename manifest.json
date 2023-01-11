@@ -1,7 +1,7 @@
 {
   "name": "Align Column and Square Grid layouts",
-  "id": "1195091063364332253",
-  "api": "1.0.0",
+  "id": "1195126711922933526",
+  "api": "0.0.1",
   "main": "./dist/index.js",
   "editorType": [
     "figma"
