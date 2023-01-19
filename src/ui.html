@@ -53,6 +53,26 @@
     flex: 1;
     margin-left: 18px;
   }
+  .defaultOptionContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-top: 20px;
+  }
+  .defaultOptionContainer button {
+    margin-bottom: 10px;
+    border: 1px solid transparent;
+  }
+  .secondaryButton {
+    color: #2c2c2c;
+    background-color: #fff;
+    border: 1px solid #2c2c2c !important;
+
+  }
+  .secondaryButton:hover {
+    background-color: #2c2c2c;
+    color: #fff;
+  }
 </style>
 
 <body>
@@ -81,6 +101,12 @@
     <div class="buttonContainer">
         <button id="close" type="submit">Close</button>
         <button id="ok" type="submit">Apply</button>
+    </div>
+    <div class="defaultOptionContainer">
+      <p>Defaults</p>
+      <button id="desktopDefault">Desktop Sizes</button>
+      <button id="tabletDefault" class="secondaryButton">Tablet Sizes</button>
+      <button id="mobileDefault" class="secondaryButton">Mobile Sizes</button>
     </div>
   </form>
   <div class="warningContainer hide">
@@ -150,5 +176,43 @@
     const containerScreenPercentage = document.getElementById('invx_container-screen-percentage').value;
 
     parent.postMessage({ pluginMessage: { type: 'submit', baselinePixel, artboardWidth, columnGap, columnCount, containerScreenPercentage, acceptArtboardWidthChange: true } }, '*');
+  }
+
+  const defaultButtonSelect = (buttonId) => {
+    document.getElementById('desktopDefault').classList.add('secondaryButton');
+    document.getElementById('tabletDefault').classList.add('secondaryButton');
+    document.getElementById('mobileDefault').classList.add('secondaryButton');
+
+    document.getElementById(buttonId).classList.remove('secondaryButton');
+  }
+
+  document.getElementById('desktopDefault').onclick = () => {
+    document.getElementById('invx_baseline-pixel').value = 20;
+    document.getElementById('invx_artboard-width').value = 1920;
+    document.getElementById('invx_column-gap').value = 40;
+    document.getElementById('invx_column-count').value = 12;
+    document.getElementById('invx_container-screen-percentage').value = 85;
+
+    defaultButtonSelect('desktopDefault');
+  }
+
+  document.getElementById('tabletDefault').onclick = () => {
+    document.getElementById('invx_baseline-pixel').value = 20;
+    document.getElementById('invx_artboard-width').value = 640;
+    document.getElementById('invx_column-gap').value = 40;
+    document.getElementById('invx_column-count').value = 6;
+    document.getElementById('invx_container-screen-percentage').value = 85;
+
+    defaultButtonSelect('tabletDefault');
+  }
+
+  document.getElementById('mobileDefault').onclick = () => {
+    document.getElementById('invx_baseline-pixel').value = 20;
+    document.getElementById('invx_artboard-width').value = 340;
+    document.getElementById('invx_column-gap').value = 20;
+    document.getElementById('invx_column-count').value = 4;
+    document.getElementById('invx_container-screen-percentage').value = 90;
+
+    defaultButtonSelect('mobileDefault');
   }
 </script>
